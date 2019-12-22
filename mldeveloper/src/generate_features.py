@@ -67,6 +67,11 @@ class MLFeatureGenerate():
         scaler_feat = None
         pca_feat = None
         
+        if((isinstance(x,pd.DataFrame) == True) or (isinstance(x,pd.Series) == True)):
+            x = np.array(x.values)
+        if((isinstance(y,pd.DataFrame) == True) or (isinstance(y,pd.Series) == True)):
+            y = np.array(y.values)
+            
         if(self.poly==True):
             x, poly_feat = self.create_poly_feats(x)
         if(self.scale==True):
