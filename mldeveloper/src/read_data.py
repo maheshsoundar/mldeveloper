@@ -86,11 +86,18 @@ class MLReader():
     def read_files_df(self,list_files):
         if not list_files:
             return None
-        
+        slash = "\\"
+        usecols = self.train_cols
+
+        if len(self.train_cols) == 0:
+            usecols = None
+        if _platform == "darwin":
+            slash="//"
+            
         list_df = []
         counter = 1
         for file in list_files:
-            df = pd.read_csv(self.path+"\\"+file, delim_whitespace=True,usecols=self.train_cols)
+            df = pd.read_csv(self.path+slash+file, delim_whitespace=True,usecols=usecols)
             df = self.create_lag_cols(df)
             print("File {} with name {} read".format(counter,file))
             list_df.append(df) 
@@ -100,10 +107,11 @@ class MLReader():
         return res_df
     
     #read files seperately into train, test and validation dataframes as specified by seperate list of file names for test and/or validation.
-    #Only needed if they need to be seperately provided
+    #Only needed if they need to be seperately provided.
+    #Parameters: #extension - default'.txt'. Extension of files to be read
     #Returns: train , test and validation dataframes.
-    def get_all_df(self):       
-        self.scan_files()
+    def get_all_df(self,extension='.txt'):       
+        self.scan_files(extension)
         self.get_train_files()
         train_df = self.read_files_df(self.train_files)
         test_df = self.read_files_df(self.test_files)
@@ -112,9 +120,10 @@ class MLReader():
         return train_df,test_df,val_df
     
     #Read all the files which satisfy the extension in the given filepath into a dataframe.
+    #Parameters: #extension - default'.txt'. Extension of files to be read
     #Returns: the dataframe with read content. 
-    def get_all_data(self):       
-        self.scan_files()
+    def get_all_data(self,extension='.txt'):       
+        self.scan_files(extension)
         return self.read_files_df(self.files)
     
 
