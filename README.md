@@ -21,11 +21,13 @@ Reads the files available in given filepath. Creates seperate train, test, valid
 #with timestep 1.
 #seed- seed for reproducibility.
 
- get_all_df() - Read files seperately into train, test and validation dataframes as specified by seperate list of file names for test and/or validation.Only needed if they need to be seperately provided
-Returns: train , test and validation dataframes.
+ get_all_df() - Read files seperately into train, test and validation dataframes as specified by seperate list of file names for test and/or validation.Only needed if they need to be seperately provided.
+Parameters - #extension - default'.txt'. Extension of files to be read.
+Returns: train, test and validation dataframes.
 
  get_all_data() - Read all the files which satisfy the extension in the given filepath into a dataframe.
- Returns: the dataframe with read content. 
+Parameters - #extension - default'.txt'. Extension of files to be read.
+Returns: the dataframe with read content. 
 
 (ii) MLFilter
 
