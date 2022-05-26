@@ -109,7 +109,7 @@ sortedcontainers==2.0.5
 SpeechRecognition==3.8.1
 statsmodels==0.9.0
 tensorboard==1.11.0
-tensorflow==1.11.0
+tensorflow==2.7.2
 tensorflow-tensorboard==0.4.0rc3
 termcolor==1.1.0
 terminado==0.8.1
