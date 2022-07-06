@@ -30,7 +30,7 @@ h11==0.7.0
 h2==3.0.1
 h5py==2.8.0
 hpack==3.0.0
-html5lib==0.9999999
+html5lib==0.999999999
 hyperframe==5.1.0
 idna==2.7
 ipykernel==5.1.0
